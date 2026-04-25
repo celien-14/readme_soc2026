@@ -195,7 +195,7 @@ We performed three primary categories of tests to validate the memory's behavior
 
 The simulation results confirm that the SRAM functions exactly as intended for a synchronous hard macro.
 
-![Wave_form.png)
+!(Wave_form.png)
 
 **Key Observations from the Waveform:**
 * **Read Latency**: The waveform clearly demonstrates the **1-cycle read latency**. As seen in the signals, when `addr0` transitions to `3D`, the data bus `dout0` provides the value previously stored at `3C` (`3C3C3C3C`). The data for address `3D` appears on the subsequent rising edge of `clk0`.
