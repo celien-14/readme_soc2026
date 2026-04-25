@@ -174,21 +174,7 @@ This required coordinated changes across:
 
 ## How to Test
 
-The design can be tested at multiple levels:
-
-### 1. RTL Simulation
-- Validate correct integration of the SRAM within the Wildcat processor
-- Verify memory read/write behavior
-
-### 2. Functional Memory Testing
-- Basic tests:
-  - Write to memory
-  - Read back values
-  - Check data consistency
-
-### 3. Caravel Integration
-- Integration within the `user_project_wrapper`
-- Verification of connectivity and interface behavior
+Aldric
 
 ## Results (Area and Timing)
 
