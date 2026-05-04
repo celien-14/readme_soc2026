@@ -12,7 +12,7 @@ The goal is therefore to:
 - Harden the design using the LibreLane/OpenLane flow
 - Prepare a design suitable for real tapeout
 
-While the project initially appeared straightforward, integrating OpenRAM turned out to be one of the most challenging parts of the entire flow. Significant effort was required to handle memory generation, macro integration, and physical design constraints.
+While the project initially appeared straightforward, integrating OpenRAM turned out to be one of the most challenging parts of the entire flow. Significant effort was required to handle memory generation, macro integration, and physical design constraints. We ended up integrating a memory already generated and tested, available in the PDK.
 
 ---
 
@@ -29,7 +29,7 @@ The design consists of:
 ### SRAM Architecture
 
 - Current prototype: **256 × 32-bit SRAM**
-- Generated using OpenRAM
+- Available in the PDK
 - Intended to be replaced by a larger macro in the final version
 
 The SRAM is integrated as a **hard macro (blackbox)**:
@@ -74,6 +74,22 @@ Although conceptually simple, the integration exposed several non-trivial issues
   Some stages of the flow were more sensitive to the macro and required iterative debugging.
 
 Overall, integrating OpenRAM proved to be the **main bottleneck of the project**, both in terms of time and complexity.
+
+---
+
+## OpenRAM generation
+
+The first step is to generate a SRAM macro with OpenRAM. This can be done with the scripts from [the official repository](https://github.com/VLSIDA/OpenRAM/tree/stable), on Linux. 
+
+As it was slow on our laptops, especially for SRAMs above 512 bytes, we used Google Colab. 
+The Colab given by OpenRAM was outdated, so we modified it slightly and corrected bugs.
+The ipynb can be found in our repo (OpenRAM_generator.ipynb).
+
+**Problems**  
+  - Symmetry
+  - Generation fail
+  - Errors in generated files
+  - Errors in scripts
 
 ---
 
