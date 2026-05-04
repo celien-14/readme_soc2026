@@ -24,9 +24,6 @@ The design consists of:
 - The Wildcat RISC-V processor
 - A custom SRAM block generated using OpenRAM
 - Integration within the Caravel `user_project_wrapper`
-
-The original memory inside Wildcat has been replaced by a dedicated SRAM macro.
-
 ---
 
 ### SRAM Architecture
@@ -74,7 +71,7 @@ Although conceptually simple, the integration exposed several non-trivial issues
   - Flow configuration adjustments
 
 - **Flow instability**  
-  Some stages of the flow (especially Magic and extraction) were sensitive to the macro and required iterative debugging.
+  Some stages of the flow were more sensitive to the macro and required iterative debugging.
 
 Overall, integrating OpenRAM proved to be the **main bottleneck of the project**, both in terms of time and complexity.
 
@@ -146,18 +143,6 @@ This module:
 
 ---
 
-### Existing Memory (Replaced)
-
-- `ScratchPadMem.scala`
-
-This file contained the original memory implementation based on `SyncReadMem`, which:
-- Is suitable for FPGA
-- Is not suitable for ASIC (mapped to flip-flops and multiplexers)
-
-It was replaced by the OpenRAM-based memory module.
-
----
-
 ### Summary of Changes
 
 The following transformations were performed:
@@ -217,46 +202,7 @@ To reproduce these results, follow these steps in the `sram_test` directory:
 2.  **Compile**: `iverilog -o sram_test.vvp sram_test.v sky130_sram_1kbyte_1rw1r_32x256_8.v`.
 3.  **Execute**: `vvp sram_test.vvp`.
 4.  **View**: Open the resulting `.vcd` file in VS Code using the **WaveTrace** extension.
-
-
-## Results (Area and Timing)
-
-### Current Status
-
-The current implementation uses a **256 × 32 OpenRAM macro** as a prototype for integration.
-
-Final area and timing results are not yet available, as they depend on:
-- Generation of the final SRAM macro
-- Resolution of DRC issues
-- Full clean hardening of the design
-
----
-
-### Planned Metrics
-
-The following metrics will be reported in the final version:
-
-#### Area
-- Total design area
-- SRAM macro area contribution
-
-#### Timing
-- Clock frequency
-- Setup/hold slack
-- Critical path
-
-#### Physical Verification
-- DRC status
-- LVS status
-
----
-
-## Authors
-
-- Célien Abbet  
-- Amaury Chevoir  
-- Aldric Rüedi  
-
+ 
 ---
 
 ## Final Remarks
@@ -271,3 +217,11 @@ What initially seemed like a simple replacement of a memory block turned into a 
 - Non-trivial debugging across multiple abstraction levels
 
 This experience provided valuable insight into the challenges of real-world chip design and tapeout preparation.
+
+---
+
+## Authors
+
+- Célien Abbet  
+- Amaury Chevoir  
+- Aldric Rüedi 
