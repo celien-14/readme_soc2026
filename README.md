@@ -15,4 +15,4 @@ The goal is therefore to:
 
 While the project initially appeared straightforward, integrating OpenRAM turned out to be one of the most challenging parts of the entire flow. 
 Significant effort was required to handle memory generation, macro integration, and physical design constraints. 
-We ended up integrating a memory already generated and tested, available in the PDK.
+We ended up integrating a memory already generated and tested, available in the PDK. You can read about the details [here](open_ram_integration.md).
