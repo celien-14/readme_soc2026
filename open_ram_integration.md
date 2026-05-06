@@ -91,6 +91,17 @@ The ipynb can be found in our repo (OpenRAM_generator.ipynb).
   - Errors in generated files
   - Errors in scripts
 
+Here we can see the different bitcells for the Sky130 technology, and the comparison with a D flip flop (comes from the OpenRAM documentation).
+
+## Thin SRAM Bitcells (130nm)
+| <img height="158" src="../assets/thin_single.png"> | <img height="158" src="../assets/thin_dual.png"> | <img height="158" src="../assets/thin_single_straps.png">   | <img height="197" src="../assets/thin_dual_straps.png"> |
+| :--------------------------------------------------------: | :------------------------------------------------------: | :-----------------------------------------------------------------: | :-------------------------------------------------------------: |
+| Single Port 1.2um x 1.58um                                 | Dual Port 2.40um x 1.58um                                | Single Port (w/ straps & taps) 2.49um x 1.58um                      | Dual Port (w/ straps & taps) 3.12um x 1.97um                    |
+
+| <img height="707" src="../assets/dff_reference.png"> |
+| :----------------------------------------------------------: |
+| DFF (for reference) 5.83um x 7.07 um                         |
+
 ---
 
 ## Design Implementation
